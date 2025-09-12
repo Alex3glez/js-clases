@@ -1,5 +1,0 @@
-Working directory
-
-Staging area
-
-Local repository

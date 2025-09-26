@@ -96,6 +96,8 @@ const restart = () => {
     resetButton.classList.add('hiding');
     playCount=0;
     currentMove = "X";
+    divForAlert.textContent = "Es el turno de :" + currentMove;
+    divForAlert.setAttribute('class', `alert alert-info`)
     isActiveGame = true;
 }
 

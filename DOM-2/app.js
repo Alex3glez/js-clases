@@ -1,10 +1,10 @@
 /**
  * Pendientes:
- * La función de restart está incompleta
- * Debemos de crear una función para detectar el empate
- * Debemos modificar la función handleCellClick para verificar
+ * La función de restart está incompleta V
+ * Debemos de crear una función para detectar el empate V
+ * Debemos modificar la función handleCellClick para verificar el empate V
  * 
- * Opcional: Inicializa el juego solo cuando la pagina haya cargado
+ * Opcional: Inicializa el juego solo cuando la pagina haya cargado V
  */
 
 
@@ -13,9 +13,10 @@ const divForAlert = document.querySelector('.alert');
 const resetButton = document.querySelector('.btn');
 let currentMove = "X";
 let isActiveGame = true;
+let playCount=0;
 
-
-const handleCellClick = (e) => {
+window.onload= function () {
+    const handleCellClick = (e) => {
 
     if(!isActiveGame){
         table.forEach(elem=> elem.style.cursor = "not-allowed");
@@ -28,6 +29,7 @@ const handleCellClick = (e) => {
         if (result) {
             alert(`Gano el usuario ${currentMove}`)
         }
+        detectDraw();
         changeCurrentMove();
     } else {
         console.log(e.target.textContent)
@@ -89,11 +91,25 @@ const restart = () => {
     table.forEach(elem=>{
         elem.textContent = "";
         elem.style.backgroundColor = "white";
+        elem.style.cursor = "pointer";
     })
+    resetButton.classList.add('hiding');
+    playCount=0;
+    currentMove = "X";
     isActiveGame = true;
 }
 
-resetButton.addEventListener('click',restart)
+function detectDraw() {
+   if (reviewMove()) playCount=0
+   else if (playCount===8){
+     alert(`EMPATE`);
+     resetButton.classList.remove('hiding');
+    }
+    else playCount++;
+    
+}
 
+resetButton.addEventListener('click',restart)
+}
 
 

@@ -13,3 +13,12 @@
 .hiding{
     display: none;
 }
+.juego{
+    aspect-ratio: 1/1;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

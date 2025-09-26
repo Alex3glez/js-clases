@@ -1,0 +1,15 @@
+.row > div {
+    height: 120px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 2rem;
+}
+
+.row > div:hover{
+    background-color: rgba(0, 0, 0, 0.084);
+    transform: scale(1.1);
+}
+
+.hiding{
+    display: none;
+}
